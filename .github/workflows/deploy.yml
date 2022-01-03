@@ -1,15 +1,16 @@
-# name: MainDeploy
-# on: [push]
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout
-#       uses: actions/checkout@master
+name: MainDeploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
 
-#     - name: Build and Deploy
-#       uses: kanecapital/workbook@main
-#       env:
-#         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#         BUILD_SCRIPT: yarn && yarn build
-#         BUILD_DIR: src/.vuepress/dist/
+    - name: Build and Deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_SCRIPT: yarn && yarn build
+        BUILD_DIR: src/.vuepress/dist/
+        TARGET_REPO: kanecapital/workbook@main
