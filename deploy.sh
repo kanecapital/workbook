@@ -15,8 +15,6 @@ cd src/.vuepress/dist
 # git init
 git add -A
 git commit -m 'deploy'
-
-# if you are deploying to https://<USERNAME>.github.io
-git push -f git@github.com:kanecapital/kanecapital.github.io.git main
+git push
 
 cd -
